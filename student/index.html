@@ -1,0 +1,112 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!--FONT AWESOME ICONS https://fontawesome.com/v4.7/icon/home-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation" ID="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-shield" aria-hidden="true"></i></span>
+                        <span class="title">
+                            <h2> Sports</h2>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="home.html" target="contents_frame">
+                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="title"> Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile.php" target="contents_frame">
+                        <span class="icon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                        <span class="title"> Profiles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="upcoming_event.php" target="contents_frame">
+                        <span class="icon"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+                        <span class="title"> Upcoming events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Registered_event.php" target="contents_frame">
+                        <span class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+                        <span class="title"> Registered Events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="result.php" target="contents_frame">
+                        <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                        <span class="title"> Result</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php">
+                        <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                        <span class="title"> Sign-out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <style>
+            .contents {
+                width: 100%;
+                height: 100%;
+                overflow-y: scroll;
+                position: absolute;
+            }
+
+            .contents_frame {
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: none;
+                overflow-y: scroll;
+            }
+        </style>
+        <div class="main">
+            <div class="contents" id="contents" name="contents">
+                <iframe src="student_home.php" id="contents_frame" class="contents_frame" name="contents_frame" style="background-image:url('images/home.jpg');object-fit:fill;background-position:1000 1000;">
+                    title=""></iframe>
+                <br><br>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        let setCount = 0;
+        function toggleMenu() {
+            let toggle = document.querySelector('.toggle');
+            let navigation = document.querySelector('.navigation');
+            let main = document.querySelector('.main');
+            toggle.classList.toggle('active');
+            navigation.classList.toggle('active')
+            main.classList.toggle('active')
+        }
+        function closeNav() {
+            if (window.innerWidth <= 726 & setCount != 1) {
+                toggleMenu();
+            }
+            setCount = 0;
+        }
+
+        document.getElementById("navigation").addEventListener("click", closeNav);
+    </script>
+</body>
+
+</html>
